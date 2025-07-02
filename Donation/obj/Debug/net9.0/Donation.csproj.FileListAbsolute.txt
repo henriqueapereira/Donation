@@ -166,3 +166,5 @@ C:\Users\Henrique A Pereira\Desktop\dev2\Donation\Donation\obj\Debug\net9.0\Dona
 C:\Users\Henrique A Pereira\Desktop\dev2\Donation\Donation\obj\Debug\net9.0\Donation.genruntimeconfig.cache
 C:\Users\Henrique A Pereira\Desktop\dev2\Donation\Donation\obj\Debug\net9.0\ref\Donation.dll
 C:\Users\Henrique A Pereira\Desktop\dev2\Donation\Donation\bin\Debug\net9.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Users\Henrique A Pereira\Desktop\dev2\Donation\Donation\bin\Debug\net9.0\Newtonsoft.Json.dll
+C:\Users\Henrique A Pereira\Desktop\dev2\Donation\Donation\obj\Debug\net9.0\Donation.sourcelink.json
