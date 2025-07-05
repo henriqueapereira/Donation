@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "C:\\Users\\Henrique A Pereira\\Desktop\\dev2\\Donation\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D9BEB794-5738-4442-8DE0-BA5DF9183CEA}|Donation.Api.Test\\Donation.Api.Test.csproj|c:\\users\\henrique a pereira\\desktop\\dev2\\donation\\donation.api.test\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D9BEB794-5738-4442-8DE0-BA5DF9183CEA}|Donation.Api.Test\\Donation.Api.Test.csproj|solutionrelative:donation.api.test\\unittest1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{B8DBE8DF-55D8-4F72-922D-55D43D503039}|Donation\\Donation.csproj|c:\\users\\henrique a pereira\\desktop\\dev2\\donation\\donation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{B8DBE8DF-55D8-4F72-922D-55D43D503039}|Donation\\Donation.csproj|solutionrelative:donation\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
@@ -39,12 +43,25 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "UnitTest1.cs",
+              "DocumentMoniker": "C:\\Users\\Henrique A Pereira\\Desktop\\dev2\\Donation\\Donation.Api.Test\\UnitTest1.cs",
+              "RelativeDocumentMoniker": "Donation.Api.Test\\UnitTest1.cs",
+              "ToolTip": "C:\\Users\\Henrique A Pereira\\Desktop\\dev2\\Donation\\Donation.Api.Test\\UnitTest1.cs",
+              "RelativeToolTip": "Donation.Api.Test\\UnitTest1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAADwvwoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-07-05T18:52:21.263Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\Users\\Henrique A Pereira\\Desktop\\dev2\\Donation\\Donation\\Program.cs",
               "RelativeDocumentMoniker": "Donation\\Program.cs",
               "ToolTip": "C:\\Users\\Henrique A Pereira\\Desktop\\dev2\\Donation\\Donation\\Program.cs",
               "RelativeToolTip": "Donation\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2025-05-26T23:57:19.937Z",
               "EditorCaption": ""

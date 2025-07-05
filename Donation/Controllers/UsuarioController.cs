@@ -1,5 +1,6 @@
 ﻿using Donation.Models;
 using Donation.Repository.Interface;
+using Donation.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -113,8 +114,17 @@ namespace Donation.Controllers
 
             if ( usuario != null)
             {
+                //GERANDO TOKEN DE ACESSO
+                var token = AuthenticationService.GetToken(usuario);
+
+                var usuarioRetorno = new
+                {
+                    usuario = usuario,
+                    token = token
+                };
+
                 usuario.Senha = string.Empty;
-                return Ok(usuario);
+                return Ok(usuarioRetorno);
             } else
             {
                 return NotFound();

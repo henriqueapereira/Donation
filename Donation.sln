@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35931.197 d17.13
+VisualStudioVersion = 17.13.35931.197
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Donation", "Donation\Donation.csproj", "{B8DBE8DF-55D8-4F72-922D-55D43D503039}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Donation.Api.Test", "Donation.Api.Test\Donation.Api.Test.csproj", "{D9BEB794-5738-4442-8DE0-BA5DF9183CEA}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B8DBE8DF-55D8-4F72-922D-55D43D503039}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B8DBE8DF-55D8-4F72-922D-55D43D503039}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B8DBE8DF-55D8-4F72-922D-55D43D503039}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D9BEB794-5738-4442-8DE0-BA5DF9183CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D9BEB794-5738-4442-8DE0-BA5DF9183CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D9BEB794-5738-4442-8DE0-BA5DF9183CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D9BEB794-5738-4442-8DE0-BA5DF9183CEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
