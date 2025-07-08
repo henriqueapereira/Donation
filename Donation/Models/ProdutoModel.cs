@@ -7,7 +7,7 @@ namespace Donation.Models
     [Table("Produto")]
     public class ProdutoModel
     {
-        
+
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ProdutoId { get; set; }
@@ -43,5 +43,22 @@ namespace Donation.Models
         //Navigation Property
         [ForeignKey(nameof(CategoriaId))]
         public CategoriaModel Categoria { get; set; }
+
+        public ProdutoModel()
+        { }
+
+        public ProdutoModel(int produtoId, string nome, bool disponivel, string descricao, string sugestaoTroca, double valor, DateTime dataCadastro, DateTime dataExpiracao, int usuarioId, int categoriaId)
+        {
+            ProdutoId = produtoId;
+            Nome = nome;
+            Disponivel = disponivel;
+            Descricao = descricao;
+            SugestaoTroca = sugestaoTroca;
+            Valor = valor;
+            DataCadastro = dataCadastro;
+            DataExpiracao = dataExpiracao;
+            UsuarioId = usuarioId;
+            CategoriaId = categoriaId;
+        }
     }
 }
