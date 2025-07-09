@@ -27,6 +27,7 @@ namespace Donation.Services
                     new Claim( ClaimTypes.Role, usuarioModel.Regra)
                 }),
                 Expires = DateTime.UtcNow.AddMinutes(5),
+                Issuer = "fiap",
                 SigningCredentials = new SigningCredentials( 
                     new SymmetricSecurityKey(secret) , 
                     SecurityAlgorithms.HmacSha256Signature )

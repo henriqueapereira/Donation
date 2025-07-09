@@ -46,6 +46,7 @@ builder.Services.AddAuthentication(
             {
                 ValidateIssuerSigningKey = true,
                 ValidateIssuer = true,
+                ValidIssuer="fiap",
                 IssuerSigningKey = new SymmetricSecurityKey(key),
                 //LifetimeValidator = ...
                 ValidateAudience = false,

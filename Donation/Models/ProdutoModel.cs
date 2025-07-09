@@ -1,10 +1,12 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using System.ComponentModel.DataAnnotations;
+using Microsoft.EntityFrameworkCore;
 
 namespace Donation.Models
 {
 
     [Table("Produto")]
+    [Index(nameof(DataCadastro), IsUnique = false)]
     public class ProdutoModel
     {
 

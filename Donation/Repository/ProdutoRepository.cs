@@ -19,9 +19,26 @@ namespace Donation.Repository
 
             return produtos == null ? [] : produtos;
         }
+        
+        //PAGINAÇÃO
+        public async Task<IList<ProdutoModel>> FindAll(int pagina, int tamanho)
+        {
+            var produtos = _dataContext.Produtos
+                                .Skip(tamanho * pagina)
+                                .Take(tamanho)
+                                .AsNoTracking()
+                                .ToList();
+
+            return produtos == null ? [] : produtos;
+        }
+
+        public int Count()
+        {
+            return _dataContext.Produtos.Count();
+        }
 
 
-        public async Task <IList<ProdutoModel>> FindByNome(string nome)
+        public async Task<IList<ProdutoModel>> FindByNome(string nome)
         {
             var produtos = await _dataContext
                                 .Produtos // SELECT * FROM Produtos
