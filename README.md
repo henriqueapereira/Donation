@@ -1,10 +1,10 @@
-# 📚 Donation.API
+# 🗂️ Donation.API
 
 Donation é uma aplicação web desenvolvida em C# com ASP.NET Core MVC e banco de dados SQL Server. O objetivo do sistema é facilitar a doação e troca de produtos entre usuários, promovendo o consumo consciente e solidário.
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias Utilizadas 
 
 - **C#**
 - **ASP.NET Core**
