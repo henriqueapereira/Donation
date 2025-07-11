@@ -169,3 +169,4 @@ C:\Users\Henrique A Pereira\Desktop\dev2\Donation\Donation\bin\Debug\net9.0\Swas
 C:\Users\Henrique A Pereira\Desktop\dev2\Donation\Donation\bin\Debug\net9.0\Newtonsoft.Json.dll
 C:\Users\Henrique A Pereira\Desktop\dev2\Donation\Donation\obj\Debug\net9.0\Donation.sourcelink.json
 C:\Users\Henrique A Pereira\Desktop\dev2\Donation\Donation\bin\Debug\net9.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
+C:\Users\Henrique A Pereira\Desktop\dev2\Donation\Donation\bin\Debug\net9.0\AutoMapper.dll

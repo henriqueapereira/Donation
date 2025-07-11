@@ -9,6 +9,8 @@ namespace Donation.Repository.Interface
         
         public Task <IList<ProdutoModel>> FindAll(int pagina, int tamanho);
 
+        public Task <IList<ProdutoModel>> FindAll(DateTime? dataReferencia, int tamanho);
+
         public int Count();
 
         public Task<IList<ProdutoModel>> FindByNome(string nome);

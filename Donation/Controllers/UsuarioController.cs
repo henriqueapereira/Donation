@@ -1,6 +1,8 @@
-﻿using Donation.Models;
+﻿using AutoMapper;
+using Donation.Models;
 using Donation.Repository.Interface;
 using Donation.Services;
+using Donation.ViewModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Http.Extensions;
 using Microsoft.AspNetCore.Mvc;
@@ -14,19 +16,24 @@ namespace Donation.Controllers
 
         private readonly IUsuarioRepository _usuarioRepository;
 
-        public UsuarioController(IUsuarioRepository usuarioRepository)
+        private readonly IMapper _mapper;
+
+        public UsuarioController(IUsuarioRepository usuarioRepository, IMapper mapper)
         {
             _usuarioRepository = usuarioRepository;
+            _mapper = mapper;
         }
         [HttpGet]
-        public async Task<ActionResult<IList<UsuarioModel>>> GetAsync()
+        public async Task<ActionResult<IList<UsuarioResponseVM>>> GetAsync()
         {
             var usuarios = await _usuarioRepository.FindAll();
 
-            if( usuarios != null && usuarios.Count > 0 )
+            if (usuarios != null && usuarios.Count > 0)
             {
-                return Ok(usuarios);
-            } else
+                var resposta = _mapper.Map<List<UsuarioResponseVM>>(usuarios);
+                return Ok(resposta);
+            }
+            else
             {
                 return NoContent();
             }
@@ -34,48 +41,56 @@ namespace Donation.Controllers
         }
 
         [HttpGet("{id:int}")]
-        public async Task<ActionResult<UsuarioModel>> GetAsync(int id)
+        public async Task<ActionResult<UsuarioResponseVM>> GetAsync(int id)
         {
             var usuario = await _usuarioRepository.FindById(id);
 
             if (usuario != null)
             {
-                return Ok(usuario);
-            } else
+                var resposta = _mapper.Map<UsuarioResponseVM>(usuario);
+                return Ok(resposta);
+            }
+            else
             {
                 return NotFound();
             }
         }
 
         [HttpPost]
-        public async Task<ActionResult<UsuarioModel>> Post([FromBody] UsuarioModel usuarioModel)
+        public async Task<ActionResult<UsuarioResponseVM>> Post([FromBody] UsuarioRequestVM usuarioRequestVM)
         {
-                
-            if ( ! ModelState.IsValid )
+
+            if (!ModelState.IsValid)
             {
                 return BadRequest();
             }
 
+            var usuarioModel = _mapper.Map<UsuarioModel>(usuarioRequestVM);
+
             await _usuarioRepository.Insert(usuarioModel);
 
             var url = Request.GetEncodedUrl().EndsWith("/") ?
-                        Request.GetEncodedUrl() : 
+                        Request.GetEncodedUrl() :
                         Request.GetEncodedUrl() + "/";
 
             url = url + usuarioModel.UsuarioId;
-           
 
-            return Created(url, usuarioModel);
+            var usuarioResponseVM = _mapper.Map<UsuarioResponseVM>(usuarioModel);
+
+            return Created(url, usuarioResponseVM);
         }
 
         [HttpPut("{id:int}")]
-        public async Task<ActionResult> Put([FromRoute] int id, [FromBody] UsuarioModel usuarioModel)
+        public async Task<ActionResult> Put([FromRoute] int id, [FromBody] UsuarioRequestVM usuarioRequestVM)
         {
-            if ( (!ModelState.IsValid) || (id != usuarioModel.UsuarioId) )
+            if ((!ModelState.IsValid) || (id != usuarioRequestVM.UsuarioId))
             {
                 return BadRequest();
-            } else 
+            }
+            else
             {
+                var usuarioModel = _mapper.Map<UsuarioModel>(usuarioRequestVM);
+
                 _usuarioRepository.Update(usuarioModel);
                 return NoContent();
             }
@@ -85,47 +100,44 @@ namespace Donation.Controllers
         public async Task<ActionResult> Delete([FromRoute] int id)
         {
 
-            if ( id == 0 )
+            if (id == 0)
             {
                 return BadRequest();
             }
 
             var usuario = _usuarioRepository.FindById(id);
 
-            if (usuario == null )
+            if (usuario == null)
             {
                 return NotFound();
 
             }
-            
+
             _usuarioRepository.Delete(id);
             return NoContent();
-            
+
         }
 
-        
+
         [HttpPost]
         [Route("Login")]
-        public async Task<ActionResult<UsuarioModel>> Login([FromBody] UsuarioModel usuarioModel)
+        public async Task<ActionResult<LoginResponseVM>> Login([FromBody] LoginRequestVM loginRequestVM)
         {
             var usuario = await _usuarioRepository.FindByEmailAndSenha(
-                usuarioModel.EmailUsuario,
-                usuarioModel.Senha);
+                loginRequestVM.EmailUsuario,
+                loginRequestVM.Senha);
 
-            if ( usuario != null)
+            if (usuario != null)
             {
                 //GERANDO TOKEN DE ACESSO
                 var token = AuthenticationService.GetToken(usuario);
 
-                var usuarioRetorno = new
-                {
-                    usuario = usuario,
-                    token = token
-                };
+                var loginResponseVM = _mapper.Map<LoginResponseVM>(usuario);
+                loginResponseVM.Token = token;
 
-                usuario.Senha = string.Empty;
-                return Ok(usuarioRetorno);
-            } else
+                return Ok(loginResponseVM);
+            }
+            else
             {
                 return NotFound();
             }

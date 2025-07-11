@@ -21,10 +21,23 @@ namespace Donation.Repository
         }
         
         //PAGINAÇÃO
-        public async Task<IList<ProdutoModel>> FindAll(int pagina, int tamanho)
+        public async Task<IList<ProdutoModel>> FindAll(int pagina = 0, int tamanho = 5)
         {
             var produtos = _dataContext.Produtos
+                                .OrderBy(p => p.ProdutoId)
                                 .Skip(tamanho * pagina)
+                                .Take(tamanho)
+                                .AsNoTracking()
+                                .ToList();
+
+            return produtos == null ? [] : produtos;
+        }
+
+        public async Task<IList<ProdutoModel>> FindAll(DateTime? dataReferencia, int tamanho = 5)
+        {
+            var produtos = _dataContext.Produtos
+                                .Where ( p => p.DataCadastro > dataReferencia)
+                                .OrderBy(p => p.DataCadastro)
                                 .Take(tamanho)
                                 .AsNoTracking()
                                 .ToList();
